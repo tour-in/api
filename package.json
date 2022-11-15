@@ -1,0 +1,20 @@
+{
+  "name": "tourin",
+  "version": "1.0.0",
+  "description": "\"# api\"",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tour-in/api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tour-in/api/issues"
+  },
+  "homepage": "https://github.com/tour-in/api#readme"
+}
