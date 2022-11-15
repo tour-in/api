@@ -17,6 +17,9 @@ module.exports = (sequelize, DataTypes) => {
         through: "Regiao_Cidades",
         foreignKey: "cidade_id",
       });
+      Cidades.hasMany(models.Roteiros, {
+        foreignKey: "cidade_id",
+      });
     }
   }
   Cidades.init({
