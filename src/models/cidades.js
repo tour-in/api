@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       Cidades.belongsTo(models.Estados, {
         foreignKey: 'estado_id'
       })
+      Cidades.belongsToMany(models.Regiao, {
+        through: "Regiao_Cidades",
+        foreignKey: "cidade_id",
+      });
     }
   }
   Cidades.init({
