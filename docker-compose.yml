@@ -1,0 +1,40 @@
+version: '3'
+ 
+services:
+  db:
+    image: mysql:8.0
+    container_name: db_tourin
+    environment:
+      MYSQL_ROOT_PASSWORD: my_secret_password
+      MYSQL_DATABASE: db_tourin
+      MYSQL_USER: tourin
+      MYSQL_PASSWORD: db_user_pass
+    ports:
+      - "6033:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma-tourin
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+      PMA_USER: root
+      PMA_PASSWORD: my_secret_password
+    # restart: always
+    ports:
+      - 8081:80
+
+  mailhog:
+    image: mailhog/mailhog:v1.0.1
+    logging:
+      driver: 'none'  # disable saving logs
+    ports:
+      - 1025:1025 # smtp server
+      - 8025:8025 # web ui
+volumes:
+  dbdata:
+
