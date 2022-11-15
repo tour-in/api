@@ -13,11 +13,15 @@ module.exports = (sequelize, DataTypes) => {
       Cidades.belongsTo(models.Estados, {
         foreignKey: 'estado_id'
       })
+      Cidades.hasMany(models.Roteiros, {
+        foreignKey: "cidade_id",
+      });
       Cidades.belongsToMany(models.Regiao, {
         through: "Regiao_Cidades",
         foreignKey: "cidade_id",
       });
-      Cidades.hasMany(models.Roteiros, {
+      Cidades.belongsToMany(models.Usuarios, {
+        through: "Usuarios_Cidades",
         foreignKey: "cidade_id",
       });
     }

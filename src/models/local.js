@@ -17,6 +17,10 @@ module.exports = (sequelize, DataTypes) => {
         through: "Local_Roteiros",
         foreignKey: "local_id",
       });
+      Local.belongsToMany(models.Usuarios, {
+        through: "Usuarios_Locals",
+        foreignKey: "local_id",
+      });
     }
   }
   Local.init({
