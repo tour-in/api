@@ -1,5 +1,7 @@
 const express = require("express");
 
+const estados = require("./estadosRoutes");
+
 const routes = (app) => {
   app.route("/").get((req, res) => {
     res.status(200).send({
@@ -7,7 +9,10 @@ const routes = (app) => {
     });
   });
 
-  app.use(express.json());
+  app.use(
+    express.json(), 
+    estados
+  );
 };
 
 module.exports = routes;
