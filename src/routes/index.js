@@ -1,6 +1,8 @@
 const express = require("express");
 
 const estados = require("./estadosRoutes");
+const cidades = require("./cidadesRoutes");
+const regioes = require("./regioesRoutes");
 
 const routes = (app) => {
   app.route("/").get((req, res) => {
@@ -11,7 +13,9 @@ const routes = (app) => {
 
   app.use(
     express.json(), 
-    estados
+    estados,
+    cidades,
+    regioes
   );
 };
 
