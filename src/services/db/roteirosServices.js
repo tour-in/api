@@ -1,9 +1,9 @@
 const Services = require("./services");
 const database = require("../../models");
 
-class CidadesServices extends Services {
+class RoteirosServices extends Services {
   constructor() {
-    super("Cidades");
+    super("Roteiros");
   }
   async listaTodosRegistros(where = {}) {
     return database[this.nomeDoModelo].findAll({
@@ -14,24 +14,19 @@ class CidadesServices extends Services {
   async listaUmRegistro(where = {}) {
     return database[this.nomeDoModelo].findOne({
       where: { ...where },
-      include: [
-        {
-          model: database.Roteiros,
-        },
-      ],
     });
   }
   async insereRegistro(dados) {
     const obj = {
-      estado_id: dados.estado_id,
-      cidade: dados.cidade,
+      cidade_id: dados.cidade_id,
+      roteiro: dados.roteiro,
     };
     return database[this.nomeDoModelo].create(obj);
   }
   async atualizaRegistro(dados, id, transacao = {}) {
     const obj = {
-      estado_id: dados.estado_id,
-      cidade: dados.cidade,
+      cidade_id: dados.cidade_id,
+      roteiro: dados.roteiro,
     };
     return database[this.nomeDoModelo].update(
       obj,
@@ -41,4 +36,4 @@ class CidadesServices extends Services {
   }
 }
 
-module.exports = CidadesServices;
+module.exports = RoteirosServices;

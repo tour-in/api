@@ -6,6 +6,7 @@ const base = "/api/v1/cidades";
 
 router
   .get(`${base}/:id`, CidadesController.getAll)
+  .get(`${base}/detalhe/:id`, CidadesController.getOne)
   .post(`${base}`, CidadesController.insert)
   .put(`${base}/:id`, CidadesController.update)
   .delete(`${base}/:id`, CidadesController.delete);

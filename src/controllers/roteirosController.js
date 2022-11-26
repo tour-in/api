@@ -1,12 +1,10 @@
-const { CidadesServices } = require("../services/db");
-const service = new CidadesServices();
-class CidadesController {
+const { RoteirosServices } = require("../services/db");
+const service = new RoteirosServices();
+class RoteirosController {
+  static modulo = "Setores";
   static getAll = async (req, res) => {
-    const { id } = req.params;
     try {
-      const dados = await service.listaTodosRegistros({
-        estado_id: id,
-      });
+      const dados = await service.listaTodosRegistros();
       return res.status(200).json(dados);
     } catch (error) {
       return res.status(500).json(error.message);
@@ -63,4 +61,4 @@ class CidadesController {
   };
 }
 
-module.exports = CidadesController;
+module.exports = RoteirosController;

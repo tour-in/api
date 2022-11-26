@@ -14,6 +14,9 @@ module.exports = (sequelize, DataTypes) => {
         through: "Local_Roteiros",
         foreignKey: "roteiro_id",
       });
+      Roteiros.belongsTo(models.Cidades, {
+        foreignKey: 'cidade_id'
+      })
     }
   }
   Roteiros.init({
